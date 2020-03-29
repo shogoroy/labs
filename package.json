@@ -30,8 +30,11 @@
     }
   },
   "lint-staged": {
-    "json,md,yaml,yml": [
+    "*.{jsjson,md,yaml,yml}": [
       "prettier --write"
+    ],
+    "*.{ts,tsx}": [
+      "eslint --fix"
     ],
     "package.json": [
       "sort-package-json"
@@ -44,6 +47,7 @@
     "gatsby-plugin-offline": "^3.0.41",
     "gatsby-plugin-react-helmet": "^3.1.24",
     "gatsby-plugin-sharp": "^2.4.13",
+    "gatsby-plugin-typescript": "^2.3.1",
     "gatsby-source-filesystem": "^2.1.56",
     "gatsby-transformer-sharp": "^2.3.19",
     "prop-types": "^15.7.2",
@@ -52,9 +56,18 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "^2.25.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^3.0.0",
+    "eslint-plugin-simple-import-sort": "^5.0.2",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.10",
     "prettier": "^1.19.1",
-    "sort-package-json": "^1.40.0"
+    "sort-package-json": "^1.40.0",
+    "typescript": "^3.8.3"
   }
 }
