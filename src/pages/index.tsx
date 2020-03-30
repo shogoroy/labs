@@ -5,7 +5,9 @@ import Image from "../components/image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
+interface Props {}
+
+const IndexPage: React.FC<Props> = () => (
   <Layout>
     <SEO title="Home" />
     <h1>Hi people</h1>
