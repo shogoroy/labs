@@ -1,5 +1,3 @@
-import "./layout.css"
-
 import { graphql, useStaticQuery } from "gatsby"
 import React from "react"
 
@@ -32,9 +30,8 @@ const Layout: React.FC<Props> = ({ children }) => {
       >
         <main>{children}</main>
         <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          © {new Date().getFullYear()}, &nbsp;
+          <a href="https://github.com/shogoroy/labs">shogoroy</a>
         </footer>
       </div>
     </>
