@@ -63,28 +63,33 @@ const CalenderPage: React.FC<Props> = () => {
 
     const endDate = targetMoment.endOf("month").date()
     let day = targetMoment.startOf("month").day()
-    let week = {
-      id: 1,
-      startDay: day,
-      dates: new Array(day).fill(undefined),
-    }
 
     const weeks = []
-    for (let date = 1; date <= endDate; date++) {
-      week.dates.push(date)
-      day++
 
-      if (day % 7 === 0) {
-        weeks.push(week)
-        day = 0
-        week = {
-          id: date + 1,
-          startDay: 0,
-          dates: [],
+    if (!isNaN(endDate) && !isNaN(day)) {
+      let week = {
+        id: 1,
+        startDay: day,
+        dates: new Array(day).fill(undefined),
+      }
+
+      for (let date = 1; date <= endDate; date++) {
+        week.dates.push(date)
+        day++
+
+        if (day % 7 === 0) {
+          weeks.push(week)
+          day = 0
+          week = {
+            id: date + 1,
+            startDay: 0,
+            dates: [],
+          }
         }
       }
+
+      weeks.push(week)
     }
-    weeks.push(week)
 
     setTargetDate(parseInt(date))
     setWeeks(weeks)
