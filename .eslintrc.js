@@ -1,32 +1,20 @@
 module.exports = {
+  env: { browser: true, es6: true, node: true },
+  parser: "@typescript-eslint/parser",
+  plugins: ["simple-import-sort", "react", "react-hooks", "prettier"],
   extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-    'prettier',
-    'prettier/react',
-    'prettier/@typescript-eslint',
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended",
+    "prettier/react",
   ],
-  globals: {
-    window: true,
-  },
-  plugins: [
-    '@typescript-eslint',
-    'react',
-    'react-hooks',
-    'prettier',
-    'simple-import-sort',
-  ],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    sourceType: 'module',
-    project: './tsconfig.json',
-  },
   rules: {
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/no-empty-interface': 'off',
-    'react/jsx-uses-react': 'error',
-    'react/jsx-uses-vars': 'error',
-    'simple-import-sort/sort': 'error',
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "react/prop-types": "off",
+    "@typescript-eslint/no-empty-interface": "warn",
   },
-};
+}

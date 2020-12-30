@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles"
-import moment from "moment"
+import dayjs from "dayjs"
 import React from "react"
 import { useForm } from "react-hook-form"
 
@@ -36,7 +36,7 @@ const useStyles = makeStyles(() => ({
 }))
 
 const CalenderPage: React.FC<Props> = () => {
-  const today = moment()
+  const today = dayjs()
 
   const [targetDate, setTargetDate] = React.useState<number>(0)
 
@@ -59,10 +59,10 @@ const CalenderPage: React.FC<Props> = () => {
   const handleClick = () => {
     const { year, month, date } = getValues()
 
-    const targetMoment = moment([year, parseInt(month) - 1, date])
+    const targetDay = dayjs(`${year}-${parseInt(month) - 1}-${date}`)
 
-    const endDate = targetMoment.endOf("month").date()
-    let day = targetMoment.startOf("month").day()
+    const endDate = targetDay.endOf("month").date()
+    let day = targetDay.startOf("month").day()
 
     const weeks = []
 
