@@ -10,7 +10,7 @@
   "license": "UNLICENSED",
   "author": "Shogoro Yoshida",
   "scripts": {
-    "audit:moderate": "yarn audit",
+    "audit:moderate": "yarn audit --level moderate || EXIT_CODE=$? && if [[ $EXIT_CODE -ge 4 ]]; then exit $EXIT_CODE; else exit 0; fi;",
     "build": "next build",
     "dev": "next dev",
     "start": "next start",
