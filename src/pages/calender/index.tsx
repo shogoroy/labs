@@ -50,16 +50,16 @@ const CalenderPage: React.FC<Props> = () => {
 
   const { register, getValues } = useForm({
     defaultValues: {
-      year: today.year().toString(),
-      month: (today.month() + 1).toString(),
-      date: today.date().toString(),
+      year: today.year(),
+      month: today.month() + 1,
+      date: today.date(),
     },
   })
 
   const handleClick = () => {
     const { year, month, date } = getValues()
 
-    const targetDay = dayjs(`${year}-${parseInt(month) - 1}-${date}`)
+    const targetDay = dayjs(`${year}-${month - 1}-${date}`)
 
     const endDate = targetDay.endOf("month").date()
     let day = targetDay.startOf("month").day()
@@ -91,7 +91,7 @@ const CalenderPage: React.FC<Props> = () => {
       weeks.push(week)
     }
 
-    setTargetDate(parseInt(date))
+    setTargetDate(date)
     setWeeks(weeks)
   }
 
@@ -101,23 +101,20 @@ const CalenderPage: React.FC<Props> = () => {
         <form>
           <input
             id="year"
-            name="year"
             type="number"
-            ref={register({ required: true })}
+            {...register("year", { required: true, valueAsDate: true })}
           />
           年
           <input
             id="month"
-            name="month"
             type="number"
-            ref={register({ required: true })}
+            {...register("month", { required: true, valueAsDate: true })}
           />
           月
           <input
             id="date"
-            name="date"
             type="number"
-            ref={register({ required: true })}
+            {...register("date", { required: true, valueAsDate: true })}
           />
           日
           <input type="button" value="表示" onClick={handleClick} />
@@ -136,9 +133,9 @@ const CalenderPage: React.FC<Props> = () => {
             <th className={classes.weekDay}>土</th>
           </tr>
 
-          {weeks.map(week => (
+          {weeks.map((week) => (
             <tr key={week.id}>
-              {week.dates.map(date => (
+              {week.dates.map((date) => (
                 <td
                   key={date}
                   className={
