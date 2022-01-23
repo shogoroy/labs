@@ -1,7 +1,7 @@
 module.exports = {
   env: { browser: true, es6: true, node: true },
   parser: "@typescript-eslint/parser",
-  plugins: ["simple-import-sort", "react", "react-hooks", "prettier"],
+  plugins: ["simple-import-sort", "react", "react-hooks", "prettier", "tailwindcss"],
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
@@ -9,6 +9,7 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:prettier/recommended",
+    "plugin:tailwindcss/recommended",
   ],
   rules: {
     "simple-import-sort/imports": "error",
