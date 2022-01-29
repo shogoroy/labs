@@ -11,9 +11,11 @@
   "author": "Shogoro Yoshida",
   "scripts": {
     "audit:moderate": "yarn audit --level moderate || EXIT_CODE=$? && if [[ $EXIT_CODE -ge 4 ]]; then exit $EXIT_CODE; else exit 0; fi;",
-    "build": "next build",
-    "dev": "next dev",
-    "start": "next start",
+    "build": "npm run build:next && npm run build:server",
+    "build:next": "next build",
+    "build:server": "tsc -p tsconfig.server.json",
+    "dev": "ts-node ./src/server/index.ts",
+    "start": "node dist/",
     "test": "jest",
     "prepare": "husky install"
   },
@@ -37,13 +39,16 @@
   "dependencies": {
     "@material-ui/core": "^4.12.1",
     "dayjs": "^1.10.6",
+    "express": "^4.17.2",
     "next": "^12.0.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
-    "react-hook-form": "^7.22.5"
+    "react-hook-form": "^7.22.5",
+    "socket.io": "^4.4.1"
   },
   "devDependencies": {
+    "@types/express": "^4.17.13",
     "@types/react-helmet": "^6.1.5",
     "@typescript-eslint/eslint-plugin": "^5.8.1",
     "@typescript-eslint/parser": "^5.8.1",
@@ -57,11 +62,12 @@
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-tailwindcss": "^3.3.1",
     "husky": "^7.0.4",
-    "lint-staged": "12.2.2",
+    "lint-staged": "12.3.2",
     "postcss": "^8.4.5",
     "prettier": "^2.3.2",
     "sort-package-json": "^1.50.0",
     "tailwindcss": "^3.0.15",
+    "ts-node": "^10.4.0",
     "typescript": "4.3.5"
   }
 }
