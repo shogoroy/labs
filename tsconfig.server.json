@@ -4,5 +4,5 @@
     "module": "commonjs",
     "outDir": "./dist"
   },
-  "include": ["./src/server"]
+  "include": ["./src/index.ts"]
 }

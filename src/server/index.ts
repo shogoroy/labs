@@ -1,22 +1,24 @@
-import express, { Request, Response } from "express"
+import http from "http"
 import next from "next"
+
+import { initExpressServer } from "./express"
+import { initSocketServer } from "./socket"
 
 const dev = process.env.NODE_ENV !== "production"
 const app = next({ dev })
 const handle = app.getRequestHandler()
-const port = process.env.PORT || 3000
+const port = Number(process.env.PORT) || 3000
 
 export const run = () =>
   app.prepare().then(() => {
-    const server = express()
+    const expressServer = initExpressServer(handle)
+    const httpServer = http.createServer(expressServer)
+    initSocketServer(httpServer)
 
-    server.all("*", (req: Request, res: Response) => {
-      return handle(req, res)
-    })
-    server.listen(port, (err?: any) => {
+    httpServer.listen(port, (err?: any) => {
       if (err) throw err
       console.log(`> Ready on localhost:${port} - env ${process.env.NODE_ENV}`)
     })
 
-    return server
+    return httpServer
   })

@@ -10,11 +10,11 @@
   "license": "UNLICENSED",
   "author": "Shogoro Yoshida",
   "scripts": {
-    "audit:moderate": "yarn audit --level moderate || EXIT_CODE=$? && if [[ $EXIT_CODE -ge 4 ]]; then exit $EXIT_CODE; else exit 0; fi;",
+    "audit:high": "yarn audit --level high || EXIT_CODE=$? && if [[ $EXIT_CODE -ge 8 ]]; then exit $EXIT_CODE; else exit 0; fi;",
     "build": "npm run build:next && npm run build:server",
     "build:next": "next build",
     "build:server": "tsc -p tsconfig.server.json",
-    "dev": "ts-node ./src/server/index.ts",
+    "dev": "ts-node ./src/index.ts",
     "start": "node dist/",
     "test": "jest",
     "prepare": "husky install"
@@ -33,7 +33,7 @@
       "sort-package-json"
     ],
     "yarn.lock": [
-      "yarn audit:moderate"
+      "yarn audit:high"
     ]
   },
   "dependencies": {
@@ -45,11 +45,14 @@
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.22.5",
-    "socket.io": "^4.4.1"
+    "socket.io": "^4.4.1",
+    "socket.io-client": "^4.4.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
     "@types/react-helmet": "^6.1.5",
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.8.1",
     "@typescript-eslint/parser": "^5.8.1",
     "autoprefixer": "^10.4.2",
