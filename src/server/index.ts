@@ -15,7 +15,7 @@ export const run = () =>
     const httpServer = http.createServer(expressServer)
     initSocketServer(httpServer)
 
-    httpServer.listen(port, (err?: any) => {
+    httpServer.listen(port, (err?: Error) => {
       if (err) throw err
       console.log(`> Ready on localhost:${port} - env ${process.env.NODE_ENV}`)
     })
