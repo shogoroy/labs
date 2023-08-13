@@ -1,39 +1,9 @@
-import { makeStyles } from "@material-ui/core/styles"
+import clsx from "clsx"
 import dayjs from "dayjs"
 import React from "react"
 import { useForm } from "react-hook-form"
 
 interface Props {}
-
-const useStyles = makeStyles(() => ({
-  root: {
-    backgroundColor: "#ffffff",
-    color: "#000",
-    padding: "50px",
-  },
-  formContainer: {
-    marginBottom: "50px",
-  },
-  weekDay: {
-    height: "50px",
-    width: "50px",
-    borderRadius: "25px",
-    backgroundColor: "#303f9f",
-    color: "#ffffff",
-  },
-  date: {
-    height: "50px",
-    width: "50px",
-    borderRadius: "25px",
-    backgroundColor: "#ffffff",
-    color: "#000000",
-    textAlign: "center",
-  },
-  targetDate: {
-    backgroundColor: "#303f9f",
-    color: "#ffffff",
-  },
-}))
 
 const CalenderPage: React.FC<Props> = () => {
   const today = dayjs()
@@ -46,7 +16,6 @@ const CalenderPage: React.FC<Props> = () => {
     startDay: number
   }
   const [weeks, setWeeks] = React.useState<Week[]>([])
-  const classes = useStyles()
 
   const { register, getValues } = useForm({
     defaultValues: {
@@ -96,8 +65,8 @@ const CalenderPage: React.FC<Props> = () => {
   }
 
   return (
-    <div className={classes.root}>
-      <div className={classes.formContainer}>
+    <div className={clsx("bg-white", "text-black", "p-12")}>
+      <div className={"mb-12"}>
         <form>
           <input
             id="year"
@@ -124,13 +93,20 @@ const CalenderPage: React.FC<Props> = () => {
         <table>
           {/* these should be rendered by Array.map */}
           <tr>
-            <th className={classes.weekDay}>日</th>
-            <th className={classes.weekDay}>月</th>
-            <th className={classes.weekDay}>火</th>
-            <th className={classes.weekDay}>水</th>
-            <th className={classes.weekDay}>木</th>
-            <th className={classes.weekDay}>金</th>
-            <th className={classes.weekDay}>土</th>
+            {["日", "月", "火", "水", "木", "金", "土"].map((day) => (
+              <th
+                key={day}
+                className={clsx(
+                  "h-12",
+                  "w-12",
+                  "rounded-full",
+                  "bg-[#303f9f]",
+                  "text-white"
+                )}
+              >
+                {day}
+              </th>
+            ))}
           </tr>
 
           {weeks.map((week) => (
@@ -138,11 +114,15 @@ const CalenderPage: React.FC<Props> = () => {
               {week.dates.map((date) => (
                 <td
                   key={date}
-                  className={
-                    targetDate === date
-                      ? [classes.date, classes.targetDate].join(" ")
-                      : classes.date
-                  }
+                  className={clsx(
+                    "h-12",
+                    "w-12",
+                    "rounded-full",
+                    "bg-white",
+                    "text-black",
+                    "text-center",
+                    targetDate === date && ["bg-[#303f9f]", "text-white"]
+                  )}
                 >
                   {date}
                 </td>
