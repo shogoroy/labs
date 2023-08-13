@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react"
 import { io } from "socket.io-client"
 import { v4 as uuid } from "uuid"
