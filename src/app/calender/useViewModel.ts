@@ -1,6 +1,7 @@
 import dayjs from "dayjs"
 import { useState } from "react"
-import { useForm } from "react-hook-form"
+
+import { useForm } from "@/components/form-components"
 
 export const useViewModel = () => {
   const today = dayjs()
@@ -14,7 +15,7 @@ export const useViewModel = () => {
   }
   const [weeks, setWeeks] = useState<Week[]>([])
 
-  const { register, getValues } = useForm({
+  const form = useForm({
     defaultValues: {
       year: today.year(),
       month: today.month() + 1,
@@ -23,7 +24,7 @@ export const useViewModel = () => {
   })
 
   const handleClick = () => {
-    const { year, month, date } = getValues()
+    const { year, month, date } = form.formMethods.getValues()
 
     const targetDay = dayjs(`${year}-${month - 1}-${date}`)
 
@@ -61,5 +62,5 @@ export const useViewModel = () => {
     setWeeks(weeks)
   }
 
-  return { register, weeks, targetDate, handleClick }
+  return { weeks, targetDate, handleClick, form }
 }

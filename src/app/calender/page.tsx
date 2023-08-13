@@ -1,37 +1,47 @@
+"use client"
+
 import clsx from "clsx"
 import React from "react"
 
+import FormInput from "@/components/form-components/FormInput"
+
+import type { FormValues } from "./type"
 import { useViewModel } from "./useViewModel"
 
 interface Props {}
 
 const CalenderPage: React.FC<Props> = () => {
-  const { register, weeks, targetDate, handleClick } = useViewModel()
+  const { form, weeks, targetDate, handleClick } = useViewModel()
 
   return (
     <div className={clsx("bg-white", "text-black", "p-12")}>
       <div className={"mb-12"}>
-        <form>
-          <input
-            id="year"
-            type="number"
-            {...register("year", { required: true, valueAsDate: true })}
-          />
-          年
-          <input
-            id="month"
-            type="number"
-            {...register("month", { required: true, valueAsDate: true })}
-          />
-          月
-          <input
-            id="date"
-            type="number"
-            {...register("date", { required: true, valueAsDate: true })}
-          />
-          日
-          <input type="button" value="表示" onClick={handleClick} />
-        </form>
+        <form.Form onSubmit={handleClick}>
+          <>
+            <FormInput<FormValues>
+              id="year"
+              name="year"
+              type="number"
+              formOptions={{ required: true, valueAsDate: true }}
+            />
+            年
+            <FormInput<FormValues>
+              id="month"
+              name="month"
+              type="number"
+              formOptions={{ required: true, valueAsDate: true }}
+            />
+            月
+            <FormInput<FormValues>
+              id="date"
+              name="date"
+              type="number"
+              formOptions={{ required: true, valueAsDate: true }}
+            />
+            日
+            <form.Form onSubmit={handleClick} />
+          </>
+        </form.Form>
       </div>
       <div>
         <table>
