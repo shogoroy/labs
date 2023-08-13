@@ -61,8 +61,14 @@
     "skipLibCheck": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "./dist/next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }
