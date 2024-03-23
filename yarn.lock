@@ -1253,20 +1253,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clsc@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "clsc@npm:1.0.3"
-  dependencies:
-    clsx: "npm:^1.1.1"
-    react: "npm:17.0.2"
-  checksum: 10c0/2a8d3b4dd7491a7f5d2316f4caec80d762f85b8d33bcf6c6f8da8c568310152ab668897c689ba5121b0eada325d7198d4516e27dfb38f87bcadf49ad004030e6
-  languageName: node
-  linkType: hard
-
-"clsx@npm:^1.1.1":
-  version: 1.2.1
-  resolution: "clsx@npm:1.2.1"
-  checksum: 10c0/34dead8bee24f5e96f6e7937d711978380647e936a22e76380290e35486afd8634966ce300fc4b74a32f3762c7d4c0303f442c3e259f4ce02374eb0c82834f27
+"clsx@npm:2.1.0":
+  version: 2.1.0
+  resolution: "clsx@npm:2.1.0"
+  checksum: 10c0/c09c00ad14f638366ca814097e6cab533dfa1972a358da5b557be487168acbb25b4c1395e89ffa842a8a61ba87a462d2b4885bc9d4f8410b598f3cb339599cdb
   languageName: node
   linkType: hard
 
@@ -3180,7 +3170,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:^6.3.0"
     "@typescript-eslint/parser": "npm:^6.3.0"
     autoprefixer: "npm:^10.4.14"
-    clsc: "npm:^1.0.3"
+    clsx: "npm:2.1.0"
     dayjs: "npm:^1.11.9"
     eslint: "npm:^8.47.0"
     eslint-config-next: "npm:^13.4.13"
@@ -4313,16 +4303,6 @@ __metadata:
   peerDependencies:
     react: ^16.3.0 || ^17.0.0 || ^18.0.0
   checksum: 10c0/5d934cae438f701ce646f566750ae6a445e99185ce1a026108f9db728147f7962a22ecf8db79ff26089953a3799b3607766904f4f10194ce42bcd5a1aa0215e8
-  languageName: node
-  linkType: hard
-
-"react@npm:17.0.2":
-  version: 17.0.2
-  resolution: "react@npm:17.0.2"
-  dependencies:
-    loose-envify: "npm:^1.1.0"
-    object-assign: "npm:^4.1.1"
-  checksum: 10c0/07ae8959acf1596f0550685102fd6097d461a54a4fd46a50f88a0cd7daaa97fdd6415de1dcb4bfe0da6aa43221a6746ce380410fa848acc60f8ac41f6649c148
   languageName: node
   linkType: hard
 
