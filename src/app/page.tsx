@@ -1,15 +1,15 @@
-import Head from "next/head"
+import { Metadata } from "next"
 import React from "react"
 
 interface Props {}
 
+export const metadata: Metadata = {
+  title: "Labs",
+  icons: "/favicon.ico",
+}
+
 const IndexPage: React.FC<Props> = () => (
   <div>
-    <Head>
-      <title>Labs</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
-
     <h1>Labs</h1>
   </div>
 )
