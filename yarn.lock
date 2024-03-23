@@ -3555,10 +3555,10 @@ __metadata:
     next: "npm:^13.4.13"
     postcss: "npm:^8.4.27"
     prettier: "npm:^3.0.1"
-    react: "npm:^18.2.0"
-    react-dom: "npm:^18.2.0"
-    react-helmet: "npm:^6.1.0"
-    react-hook-form: "npm:^7.45.4"
+    react: "npm:18.2.0"
+    react-dom: "npm:18.2.0"
+    react-helmet: "npm:6.1.0"
+    react-hook-form: "npm:7.51.1"
     socket.io: "npm:^4.7.2"
     socket.io-client: "npm:^4.7.2"
     sort-package-json: "npm:^2.5.1"
@@ -4632,7 +4632,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^18.2.0":
+"react-dom@npm:18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
   dependencies:
@@ -4651,7 +4651,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-helmet@npm:^6.1.0":
+"react-helmet@npm:6.1.0":
   version: 6.1.0
   resolution: "react-helmet@npm:6.1.0"
   dependencies:
@@ -4665,12 +4665,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-hook-form@npm:^7.45.4":
-  version: 7.45.4
-  resolution: "react-hook-form@npm:7.45.4"
+"react-hook-form@npm:7.51.1":
+  version: 7.51.1
+  resolution: "react-hook-form@npm:7.51.1"
   peerDependencies:
     react: ^16.8.0 || ^17 || ^18
-  checksum: 10c0/09c016213ed09771e6e0c2f85b816a52ef5dc975324fbd676d2b056dd22de7447ac3fb38997f05c92e7cecc8f14f6fa931a8cc8c24ba569e72fe621333b835b2
+  checksum: 10c0/f0acbf27fc548d3cd0e4db40b84d9dfe6c24209e4421fffbd422da15e32cc98f877ab0af9e06cb1deaf4205ec655b56020ff9f8b2bae6ada5e619890f174c374
   languageName: node
   linkType: hard
 
@@ -4690,7 +4690,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^18.2.0":
+"react@npm:18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:
