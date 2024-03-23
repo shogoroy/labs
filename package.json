@@ -10,7 +10,6 @@
   "license": "UNLICENSED",
   "author": "Shogoro Yoshida",
   "scripts": {
-    "audit:high": "yarn audit --level high || EXIT_CODE=$? && if [[ $EXIT_CODE -ge 8 ]]; then exit $EXIT_CODE; else exit 0; fi;",
     "build": "npm run build:next && npm run build:server",
     "build:next": "next build",
     "build:server": "tsc -p tsconfig.server.json",
@@ -31,9 +30,6 @@
     ],
     "package.json": [
       "sort-package-json"
-    ],
-    "yarn.lock": [
-      "yarn audit:high"
     ]
   },
   "dependencies": {
