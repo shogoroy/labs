@@ -1,25 +1,25 @@
-import { createComponent } from "@lit-labs/react"
 import { html, LitElement } from "lit"
 import { customElement, property } from "lit/decorators.js"
-import React from "react"
 
-@customElement("counter-component")
-class _Counter extends LitElement {
+export const WEB_COMPONENTS_NAME = "counter-component" as const
+
+@customElement(WEB_COMPONENTS_NAME)
+export class CounterWC extends LitElement {
   @property({ type: Number }) _count: number = 0
 
-  get count() {
+  private get count() {
     return this._count
   }
 
-  set count(value) {
+  private set count(value) {
     this._count = value
     this.render()
   }
 
-  handleClickIncrement = () => {
+  private handleClickIncrement = () => {
     this.count++
   }
-  handleClickDecrement = () => {
+  private handleClickDecrement = () => {
     this.count--
   }
 
@@ -32,8 +32,15 @@ class _Counter extends LitElement {
   }
 }
 
-export const Counter = createComponent({
-  tagName: "counter-component",
-  elementClass: _Counter,
-  react: React,
-})
+declare global {
+  interface HTMLElementTagNameMap {
+    [WEB_COMPONENTS_NAME]: CounterWC
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace JSX {
+    interface IntrinsicElements {
+      [WEB_COMPONENTS_NAME]: { _count?: number }
+    }
+  }
+}
